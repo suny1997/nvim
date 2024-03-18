@@ -10,7 +10,6 @@ return {
 		},
 		config = function()
 			vim.keymap.set("n", "<leader>t", ":Neotree toggle<CR>")
-			vim.keymap.set("i", "<leader>t", "<Esc>:Neotree toggle<CR>")
 		end,
 	},
 }
