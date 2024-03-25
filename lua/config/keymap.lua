@@ -20,14 +20,21 @@ map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rr
 map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 -- terminal模式 esc+esc 退出terminal模式
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+--跟tmux联动,移动pane
+map({ "n", "t" }, "<C-h>", "<CMD>NavigatorLeft<CR>")
+map({ "n", "t" }, "<C-l>", "<CMD>NavigatorRight<CR>")
+map({ "n", "t" }, "<C-k>", "<CMD>NavigatorUp<CR>")
+map({ "n", "t" }, "<C-j>", "<CMD>NavigatorDown<CR>")
+
 -- normal模式 ctrl+h 将光标移到左窗口
-map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+--map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 -- normal模式 ctrl+l 将光标移到右窗口
-map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+--map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 -- normal模式 ctrl+j 将光标移到下窗口
-map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+--map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 -- normal模式 ctrl+k 将光标移到上窗口
-map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+--map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 -- Insert模式 j+k设置为esc
 map("i", "jk", "<Esc>")
 -- normal模式 实现物理行的跳转
