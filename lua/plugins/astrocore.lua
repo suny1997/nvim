@@ -47,8 +47,15 @@ return {
         spell = false, -- sets vim.opt.spell
         -- 始终显示标志列
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
-        -- 禁用自动换行
-        wrap = false, -- sets vim.opt.wrap
+        -- 启用自动换行
+        wrap = true, -- sets vim.opt.wrap
+        -- 使用linebreak选项来确保在单词边界处进行换行，而不是在字符中间换行
+        linebreak = true,
+        -- 显示换行符号
+        showbreak = "↪",
+        -- 防止水平滚动,光标会在屏幕上保持固定位置，文本会在屏幕上移动
+        sidescrolloff = 0,
+        sidescroll = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
