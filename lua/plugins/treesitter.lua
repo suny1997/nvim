@@ -9,6 +9,8 @@ return {
     opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
       "lua",
       "vim",
+      "cpp",
+      "python",
       -- add more arguments for adding more treesitter parsers
       -- 添加需要的treesitter解析器,比如python,cpp
     })
