@@ -1,4 +1,4 @@
--- lsp插件 
+-- lsp插件
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
