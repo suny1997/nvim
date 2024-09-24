@@ -21,15 +21,55 @@ return {
     },
     -- 你可以启用一个预设
     presets = {
-      bottom_search = true, -- 使用经典的底部 cmdline 搜索
-      command_palette = true, -- 将 cmdline 和 popup 菜单放在一起
-      long_message_to_split = true, -- 长消息拆分为多行
+      bottom_search = false, -- 使用经典的底部 cmdline 搜索
+      command_palette = false, -- 将 cmdline 和 popup 菜单放在一起
+      long_message_to_split = false, -- 长消息拆分为多行
       inc_rename = false, -- 启用 inc-rename.nvim 风格的重命名
       lsp_doc_border = false, -- 为 hover 和 signature help 添加边框
     },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+  },
+  views = {
+    cmdline_popup = {
+      position = {
+        row = "50%",
+        col = "50%",
+      },
+      size = {
+        width = 60,
+        height = "auto",
+      },
     },
+    popupmenu = {
+      relative = "editor",
+      position = {
+        row = 8,
+        col = "50%",
+      },
+      size = {
+        width = 60,
+        height = 10,
+      },
+      border = {
+        style = "rounded",
+        padding = { 0, 1 },
+      },
+      win_options = {
+        winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+      },
+    },
+  },
+  routes = {
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "written",
+      },
+      view = "mini",
+    },
+  },
+  dependencies = {
+    "MunifTanjim/nui.nvim",
+    "rcarriga/nvim-notify",
   },
 }

@@ -29,7 +29,7 @@ return {
 
     cmp.setup({
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
+        completeopt = "menu,menuone,preview",
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
@@ -43,7 +43,7 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4), -- 预览框向下
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window 关闭补全建议
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
@@ -52,6 +52,7 @@ return {
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
       }),
+      preselect = cmp.PreselectMode.Item, -- 默认候选框第一个
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -78,6 +79,7 @@ return {
       },
     })
 
+    -- :命令行补全
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
