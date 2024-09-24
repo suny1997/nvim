@@ -31,3 +31,5 @@ keymap.set(
   "<cmd>tabnew %<CR>",
   { desc = "Open current buffer in new tab(打开当前文件到新的选项卡)" }
 )
+
+keymap.set("n", "<F5>", ":w<CR>:!clang++ % -o %< && %<<CR>", { noremap = true, silent = true })
