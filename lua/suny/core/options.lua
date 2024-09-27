@@ -39,27 +39,6 @@ opt.clipboard = { "unnamedplus" }
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
--- wsl 的 剪切板设置
-if os.getenv("WSLENV") then
-  vim.g.clipboard = {
-    name = "WslClipboard",
-    copy = {
-      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-    },
-    paste = {
-      ["+"] = 'powershell.exe -c [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ["*"] = 'powershell.exe -c [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    },
-    cache_enabled = false,
-  }
-  -- 设置剪贴板选项
-  vim.opt.clipboard = "unnamed,unnamedplus"
-  -- 确保 Neovim 使用 UTF-8 编码
-  vim.opt.encoding = "utf-8"
-  vim.opt.fileencoding = "utf-8"
-end
-
 -- autocmd
 --设置自动命令,取消在注释行按回车自动生成新行注释
 vim.cmd([[
