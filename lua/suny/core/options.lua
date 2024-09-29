@@ -1,6 +1,7 @@
 -- 打开目录时有竖线
 -- :source % 重新加载
 vim.cmd("let g:netrw_liststyle = 3")
+vim.g.python3_host_prog = "~/.venv/nvim-env/bin/python"
 
 local opt = vim.opt
 
