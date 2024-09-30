@@ -88,6 +88,40 @@ return {
         })
       end,
       -- 特殊lsp注册
+      ["clangd"] = function()
+        -- 配置 C/C++ 语言服务器
+        lspconfig["clangd"].setup({
+          capabilities = capabilities,
+          cmd = {
+            "clangd",
+            "--offset-encoding=utf-16",
+          },
+        })
+      end,
+      ["pyright"] = function()
+        -- 配置 Python 语言服务器
+        lspconfig["pyright"].setup({
+          capabilities = capabilities,
+
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+              },
+            },
+          },
+        })
+      end,
+      ["marksman"] = function()
+        -- 配置 Markdown 语言服务器
+        lspconfig["marksman"].setup({
+          capabilities = capabilities,
+          filetypes = { "markdown", "markdown.mdx" },
+          -- 您可以在这里添加其他 Markdown 特定的设置
+        })
+      end,
       ["svelte"] = function()
         -- configure svelte server
         lspconfig["svelte"].setup({
