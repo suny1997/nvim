@@ -39,6 +39,7 @@ return {
         "prismals",
         "pyright",
         "clangd", -- c/c++
+        "rust_analyzer", -- Rust
       },
     })
 
@@ -52,6 +53,7 @@ return {
         "pylint",
         "eslint_d",
         "clang-format", -- c/c++
+        "rustfmt", --Rust formatter
       },
     })
   end,
