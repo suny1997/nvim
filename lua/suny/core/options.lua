@@ -2,6 +2,7 @@
 -- :source % 重新加载
 vim.cmd("let g:netrw_liststyle = 3")
 vim.g.python3_host_prog = "~/.venv/nvim-env/bin/python"
+vim.o.sessionoptions = "localoptions"
 
 local opt = vim.opt
 

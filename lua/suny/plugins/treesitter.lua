@@ -26,6 +26,7 @@ return {
       -- ensure these language parsers are installed
       -- 希望自动安装的
       ensure_installed = {
+        "regex",
         "json",
         "javascript",
         "typescript",
