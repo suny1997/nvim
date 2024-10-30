@@ -22,20 +22,33 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
         callback = function()
-          vim.api.nvim_buf_set_keymap(0, "n", "<leader>mw", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+          vim.api.nvim_buf_set_keymap(
+            0,
+            "n",
+            "<leader>mw",
+            ":MarkdownPreview<CR>",
+            { noremap = true, silent = true, desc = "markdown(markdown预览启动)" }
+          )
           vim.api.nvim_buf_set_keymap(
             0,
             "n",
             "<leader>ms",
             ":MarkdownPreviewStop<CR>",
-            { noremap = true, silent = true }
+            { noremap = true, silent = true, desc = "markdown stop(markdown预览停止)" }
           )
           vim.api.nvim_buf_set_keymap(
             0,
             "n",
             "<leader>mt",
             ":MarkdownPreviewToggle<CR>",
-            { noremap = true, silent = true }
+            { noremap = true, silent = true, desc = "markdown toggle(markdown预览开/关)" }
+          )
+          vim.api.nvim_buf_set_keymap(
+            0,
+            "n",
+            "<leader>mp",
+            "<cmd>Pastify<CR>",
+            { noremap = true, silent = true, desc = "image paste(粘贴图片)" }
           )
         end,
       })
@@ -45,11 +58,6 @@ return {
     "TobinPalmer/pastify.nvim",
     cmd = { "Pastify", "PastifyAfter" },
     event = { "BufReadPost" }, -- Load after the buffer is read, I like to be able to paste right away
-    keys = {
-      { noremap = true, mode = "x", "<leader>p", "<cmd>PastifyAfter<CR>" },
-      { noremap = true, mode = "n", "<leader>p", "<cmd>PastifyAfter<CR>" },
-      { noremap = true, mode = "n", "<leader>P", "<cmd>Pastify<CR>" },
-    },
     config = function()
       require("pastify").setup({
         opts = {
