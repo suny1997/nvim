@@ -65,5 +65,16 @@ return {
       { desc = "Find string under cursor in cwd(当前目查找光标所在字符)" }
     )
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+    keymap.set("n", "<leader>fc", function()
+      -- 设置 Neovim 配置目录路径
+      local config_dir = vim.fn.stdpath("config")
+
+      -- 切换到配置目录
+      vim.fn.chdir(config_dir)
+      require("telescope.builtin").find_files({
+        prompt_title = "Neovim Config Files",
+        cwd = config_dir, -- Neovim 配置文件目录
+      })
+    end, { desc = "Find Config File(查找配置文件)" })
   end,
 }
