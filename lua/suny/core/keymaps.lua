@@ -9,7 +9,7 @@ keymap.set("n", "k", [[v:count ? 'k' : 'gk']], { noremap = true, expr = true })
 -- visual模式 单行或多行移动
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights(清除高亮)" })
+keymap.set("n", "<leader>ch", ":nohl<CR>", { desc = "Clear search highlights(清除高亮)" })
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically(左右分屏)" })

@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 -- 文件目录插件
 return {
   "nvim-tree/nvim-tree.lua",
@@ -50,8 +53,13 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer(切换文件目录)" }) -- toggle file explorer
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file(切换文件目录,聚焦当前文件)" }) -- toggle file explorer on current file
+    keymap.set(
+      "n",
+      "<leader>ef",
+      "<cmd>NvimTreeFindFileToggle<CR>",
+      { desc = "Toggle file explorer on current file(切换文件目录,聚焦当前文件)" }
+    ) -- toggle file explorer on current file
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer(折叠文件目录)" }) -- collapse file explorer
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer(刷新文件目录)" }) -- refresh file explorer
-  end
+  end,
 }
